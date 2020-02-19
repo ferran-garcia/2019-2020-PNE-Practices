@@ -23,9 +23,9 @@ class Seq:
 class Gene(Seq):
     pass
 
-def print_seqs(seq_list):
+def print_seqs_col(seq_list, colour):
     for e in range(len(seq_list)):
-        print("Sequence", e, ": (Length:",  seq_list[e].len(), ")",  seq_list[e])
+        termcolor.cprint(f"Sequence {e} : (Length: {seq_list[e].len()} ) {seq_list[e]}",colour)
 
 def generate_seqs(pattern, number):
     seq_lists = []
@@ -43,9 +43,9 @@ seq_list1 = generate_seqs("A", 3)
 seq_list2 = generate_seqs("AC", 5)
 
 termcolor.cprint("List 1:", 'blue')
-termcolor.colored(print_seqs(seq_list1), 'blue')
+print_seqs_col((seq_list1), 'blue')
 
 
 print()
 termcolor.cprint("List 2:", 'green')
-termcolor.colored(print_seqs(seq_list2), 'green')
+print_seqs_col(seq_list2, 'green')
