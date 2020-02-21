@@ -1,3 +1,5 @@
+import pathlib
+
 class Seq:
     """"A class for representing sequence objects"""
     def __init__(self, strbases):
@@ -52,6 +54,11 @@ class Seq:
         else:
             for e in self.strbases:
                 if e not in bases:
+                    counter_list.append(count_A)
+                    counter_list.append(count_C)
+                    counter_list.append(count_T)
+                    counter_list.append(count_G)
+                    dict1 = dict(zip(bases, counter_list))
                     return dict1
                 else:
                     if e in bases[0]:
@@ -68,11 +75,47 @@ class Seq:
             counter_list.append(count_G)
             dict2 = dict(zip(bases, counter_list))
             return dict2
+    def reverse(self):
+        rev_seq = ''
+        if self.strbases == 'NULL':
+            return self.strbases
+        else:
+            for e in self.strbases[::-1]:
+                if e not in ["A", "C", "T", "G"]:
+                    rev_seq = 'ERROR'
+                    return rev_seq
 
-                    
+                else:
+                    rev_seq += e
+        return (rev_seq)
 
+    def complement(self):
+        comp_seq = ""
+        if self.strbases == 'NULL':
+            return self.strbases
+        else:
+            for e in self.strbases:
+                if e not in ["A", "C", "T", "G"]:
+                    comp_seq = 'ERROR'
+                    return comp_seq
+                else:
+                    if e in "A":
+                        comp_seq += "T"
+                    if e in "T":
+                        comp_seq += "A"
+                    if e in "C":
+                        comp_seq += "G"
+                    if e in "G":
+                        comp_seq += "C"
+            return (comp_seq)
 
-
+    def read_fasta(self, filename):
+        file_lines = pathlib.Path(filename).read_text().split("\n")
+        body = (file_lines[1:])
+        final_str = ''.join(body)
+        final_str = Seq(final_str)
+        self.strbases = final_str
+        return (final_str)
 
 
     pass
