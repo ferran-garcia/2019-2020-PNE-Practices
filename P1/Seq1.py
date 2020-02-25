@@ -38,43 +38,13 @@ class Seq:
             return count_base
 
     def count(self):
-        count_A = 0
-        count_C = 0
-        count_T = 0
-        count_G = 0
-        counter_list = []
         bases = ["A", "C", "T", "G"]
-        if self.strbases == '':
-            counter_list.append(count_A)
-            counter_list.append(count_C)
-            counter_list.append(count_T)
-            counter_list.append(count_G)
-            dict1 = dict(zip(bases, counter_list))
-            return dict1
-        else:
-            for e in self.strbases:
-                if e not in bases:
-                    counter_list.append(count_A)
-                    counter_list.append(count_C)
-                    counter_list.append(count_T)
-                    counter_list.append(count_G)
-                    dict1 = dict(zip(bases, counter_list))
-                    return dict1
-                else:
-                    if e in bases[0]:
-                        count_A += 1
-                    elif e in bases[1]:
-                        count_C += 1
-                    elif e in bases[2]:
-                        count_T += 1
-                    elif e in bases[3]:
-                        count_G += 1
-            counter_list.append(count_A)
-            counter_list.append(count_C)
-            counter_list.append(count_T)
-            counter_list.append(count_G)
-            dict2 = dict(zip(bases, counter_list))
-            return dict2
+        count_bases = []
+        for base in bases:
+            count_bases.append(self.count_base(base))
+        dictionary = dict(zip(bases, count_bases))
+        return dictionary
+
     def reverse(self):
         rev_seq = ''
         if self.strbases == 'NULL':
@@ -112,10 +82,8 @@ class Seq:
     def read_fasta(self, filename):
         file_lines = pathlib.Path(filename).read_text().split("\n")
         body = (file_lines[1:])
-        final_str = ''.join(body)
-        final_str = Seq(final_str)
-        self.strbases = final_str
-        return (final_str)
+        self.strbases = ''.join(body)
+        return (self)
 
 
     pass
