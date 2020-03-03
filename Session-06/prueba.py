@@ -19,6 +19,9 @@ class MyGame(arcade.Window):
     def __init__(self, SCREEN_WIDTH, SCREEN_HEIGHT):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT)
 
+        file_path = os.path.dirname(os.path.abspath(__file__))
+        os.chdir(file_path)
+
         arcade.set_background_color(arcade.color.BLUE_SAPPHIRE)
 
     def setup(self):
@@ -26,7 +29,7 @@ class MyGame(arcade.Window):
         self.coin_list = arcade.SpriteList()
         self.score = 0
 
-        self.player_sprite = arcade.Sprite("BIN.jpeg", SPRITE_SCALING_PLAYER)
+        self.player_sprite = arcade.Sprite("BINLA.jpg", SPRITE_SCALING_PLAYER)
         self.player_sprite.center_x = 50  # Starting position
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
@@ -62,7 +65,7 @@ class MyGame(arcade.Window):
 
 def main():
     """ Main method """
-    window = MyGame()
+    window = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT)
     window.setup()
     arcade.run()
 
