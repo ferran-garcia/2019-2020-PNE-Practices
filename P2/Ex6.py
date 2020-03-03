@@ -7,12 +7,16 @@ EXERCISE = 5
 print(f"-----| Practice {PRACTICE}, Exercise {EXERCISE} |------")
 IP = "212.128.253.129"
 PORT = 8099
+c = Client(IP, PORT)
 FOLDER = "../Session-04/"
 txt = ".txt"
-gene = "U5"
+gene = "FRAT1"
 file_name = FOLDER + gene + txt
 s0 = Seq('')
 s0 = str(s0.read_fasta(file_name))
-c = Client(IP, PORT)
-c.debug_talk(f"Sending {gene} to the server")
-c.debug_talk(s0)
+len0 = 10
+num_frag = 5
+print(f"Gene {gene}: {s0}")
+for e in range(num_frag):
+    print(f"fragment {e+1}: {s0[len0*e:len0*(e+1)]}")
+    c.talk(f"fragment {e+1}: {s0[len0*e:len0*(e+1)]}")
