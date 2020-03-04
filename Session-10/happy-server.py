@@ -1,7 +1,7 @@
 import socket
 
 IP = "212.128.253.129"
-PORT = 8095
+PORT = 8080
 # -- Step 1: Create a socket
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -45,4 +45,8 @@ while True:
 
 
     cs.close()
+
+
+
+
 
