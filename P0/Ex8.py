@@ -4,7 +4,6 @@ bases = ["A", "C", "T", "G"]
 list_of_genes = ["U5", "ADA", "FRAT1", "FXN", "RNU6_269P" ]
 txt = ".txt"
 FOLDER = "../Session-04/"
-list_of_num = []
 
 for e in list_of_genes:
     val = 0

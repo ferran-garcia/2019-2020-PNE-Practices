@@ -2,7 +2,7 @@ import socket
 import termcolor
 from Seq1 import Seq
 
-list_genes = ["ACCTG", "TTGCAA", "TTGCACA", "TTGCACAC", "TTGCACAAA"]
+list_genes = ["ACCTCCTCTCCAGCAATGCCAACCCCAGTCCAGGCCCCCATCCGCCCAGGATCTCGATCA", "AAAAACATTAATCTGTGGCCTTTCTTTGCCATTTCCAACTCTGCCACCTCCATCGAACGA", "CAAGGTCCCCTTCTTCCTTTCCATTCCCGTCAGCTTCATTTCCCTAATCTCCGTACAAAT", "CCCTAGCCTGACTCCCTTTCCTTTCCATCCTCACCAGACGCCCGCATGCCGGACCTCAAA", "AGCGCAAACGCTAAAAACCGGTTGAGTTGACGCACGGAGAGAAGGGGTGTGTGGGTGGGT"]
 bases = ["A", "C", "T", "G"]
 folder = "../Session-04/"
 ext = ".txt"
@@ -43,7 +43,7 @@ while True:
     # -- into a human-redeable string
     msg = msg_raw.decode()
     comps = msg.split(" ")
-    if len(comps) > 2:
+    if len(comps) >= 2:
         comp1 = comps[0]
         comp2 = comps[1]
     else:
@@ -57,7 +57,7 @@ while True:
             if e == int(comp2):
                 termcolor.cprint("GET", 'green')
                 response = list_genes[e] + "\n"
-                print(response)
+                print(list_genes[e])
     if comp1 == "INFO":
         seq0 = Seq(comp2)
         response = ""
@@ -67,24 +67,29 @@ while True:
         print(f"Total length: {seq0.len()}")
         response += f"Total length: {seq0.len()}" + "\n"
         for e in bases:
-            print(f"{e} : {seq0.count_base(e)} ({seq0.count_base(e)*(100/seq0.len())}%)")
-            response += f"{e} : {seq0.count_base(e)} ({seq0.count_base(e)*(100/seq0.len())}%)" + "\n"
+            print(f"{e} : {seq0.count_base(e)} ({round(seq0.count_base(e)*(100/seq0.len()), 2)}%)")
+            response += f"{e} : {seq0.count_base(e)} ({round(seq0.count_base(e)*(100/seq0.len()), 2)}%)" + "\n"
     if comp1 == "COMP":
+        response = ''
+        response += f"COMP {comp2}" + "\n"
         seq0 = Seq(comp2)
         termcolor.cprint("COMP", 'green')
         print(seq0.complement())
-        response = seq0.complement() + "\n"
+        response += seq0.complement() + "\n"
     if comp1 == "REV":
+        response = ""
+        response += f"REV {comp2}" + "\n"
         seq0 = Seq(comp2)
         termcolor.cprint("REV", 'green')
         print(seq0.reverse())
-        response = seq0.reverse() + "\n"
+        response += seq0.reverse() + "\n"
     if comp1 == "GENE":
+        response += f"GENE {comp2}" + "\n"
         seq0 = Seq("")
         seq0 = str(seq0.read_fasta(folder+comp2+ext))
         termcolor.cprint("GENE", 'green')
         print(seq0)
-        response = seq0 + "\n"
+        response += seq0 + "\n"
 
 
     cs.send(response.encode())

@@ -36,16 +36,14 @@ def seq_reverse(seq):
     return(rev_seq)
 
 def seq_complement(seq):
+    bases = ["A", "C", "T", "G"]
+    bases_comp = ["T", "G", "A", "C"]
     comp_seq = ""
+    dict_comp = dict(zip(bases, bases_comp))
     for e in seq:
-        if e in "A":
-            comp_seq += "T"
-        if e in "T":
-            comp_seq += "A"
-        if e in "C":
-            comp_seq += "G"
-        if e in "G":
-            comp_seq += "C"
+        for i,t in dict_comp.items():
+            if e == i:
+                comp_seq += t
     return(comp_seq)
 
 

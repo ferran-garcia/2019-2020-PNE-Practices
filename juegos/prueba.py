@@ -4,16 +4,16 @@ import arcade
 import PIL
 from arcade.draw_commands import Texture
 
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 1000
-SPRITE_SCALING_LASER = 0.8
+SCREEN_WIDTH = 700
+SCREEN_HEIGHT = 700
+SPRITE_SCALING_LASER = 0.2
 SPRITE_SCALING_COIN = 0.2
 SPRITE_SCALING_PLAYER = 0.5
 SCREEN_TITLE = "Bin Laden Minigame"
 COIN_COUNT = 100
 BULLET_SPEED = 5
 
-coin = arcade.Sprite("../IMAGES/cor.jpeg", SPRITE_SCALING_COIN)
+coin = arcade.Sprite("../IMAGES/ort.jpeg", SPRITE_SCALING_COIN)
 
 class Explosion(arcade.Sprite):
     """ This class creates an explosion animation """
@@ -48,11 +48,11 @@ class MyGame(arcade.Window):
         self.score = 0
         self.set_mouse_visible(False)
         self.explosion_texture_list = []
-        columns = 16
+        columns = 30
         count = 60
-        sprite_width = 256
-        sprite_height = 256
-        file_name = "../IMAGES/fbi.jpeg"
+        sprite_width = 280
+        sprite_height = 280
+        file_name = "../IMAGES/espa.jpg"
 
         # Load the explosions from a sprite sheet
         self.explosion_texture_list = arcade.load_spritesheet(file_name, sprite_width, sprite_height, columns, count)
@@ -66,12 +66,12 @@ class MyGame(arcade.Window):
         self.bullet_list = arcade.SpriteList()
         self.explosions_list = arcade.SpriteList()
         self.score = 0
-        self.player_sprite = arcade.Sprite("../IMAGES/ort.jpeg", SPRITE_SCALING_PLAYER)
+        self.player_sprite = arcade.Sprite("../IMAGES/cor.jpeg", SPRITE_SCALING_PLAYER)
         self.player_sprite.center_x = 50  # Starting position
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
         for i in range(COIN_COUNT):
-            coin = arcade.Sprite("../IMAGES/cor.jpeg", SPRITE_SCALING_COIN)
+            coin = arcade.Sprite("../IMAGES/ort.jpeg", SPRITE_SCALING_COIN)
 
             coin.center_x = random.randrange(SCREEN_WIDTH)
             coin.center_y = random.randrange(SCREEN_HEIGHT)
@@ -96,7 +96,7 @@ class MyGame(arcade.Window):
     def on_mouse_press(self, x, y, button, modifiers):
 
         arcade.sound.play_sound(self.gun_sound)
-        bullet = arcade.Sprite(":resources:images/space_shooter/laserBlue01.png", SPRITE_SCALING_LASER)
+        bullet = arcade.Sprite("../IMAGES/francob.jpg", SPRITE_SCALING_LASER)
 
         bullet.angle = 90
         bullet.change_y = BULLET_SPEED
@@ -128,6 +128,7 @@ class MyGame(arcade.Window):
         for coin in coins_hit_list:
             coin.remove_from_sprite_lists()
             self.score += 1
+            arcade.sound.play_sound(self.hit_sound)
 
 
 
