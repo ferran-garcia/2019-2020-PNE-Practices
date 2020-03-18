@@ -30,15 +30,16 @@ def process_client(s):
     print("Request line: ", end="")
     termcolor.cprint(req_line, "green")
 
-    # -- Generate the response message
-    # It has the following lines
-    # Status line
-    # header
-    # blank line
-    # Body (content to send)
+    bases = ["A", "C", "T", "G"]
+    file_info = req_line.split()[1]
+    body = ""
+    if file_info == "/":
+        body += read_index("index.html")
+    for e in bases:
+        if e in file_info:
+            body += read_index(e+".html")
+    xbody == read_index("Error.html")
 
-    # This new contents are written in HTML language
-    body = read_index("index.html")
     # -- Status line: We respond that everything is ok (200 code)
     status_line = "HTTP/1.1 200 OK\n"
 
