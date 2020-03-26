@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import termcolor
 from pathlib import Path
+from Seq1 import Seq
 
 list_genes = ["ACCTCCTCTCCAGCAATGCCAACCCCAGTCCAGGCCCCCATCCGCCCAGGATCTCGATCA", "AAAAACATTAATCTGTGGCCTTTCTTTGCCATTTCCAACTCTGCCACCTCCATCGAACGA", "CAAGGTCCCCTTCTTCCTTTCCATTCCCGTCAGCTTCATTTCCCTAATCTCCGTACAAAT", "CCCTAGCCTGACTCCCTTTCCTTTCCATCCTCACCAGACGCCCGCATGCCGGACCTCAAA", "AGCGCAAACGCTAAAAACCGGTTGAGTTGACGCACGGAGAGAAGGGGTGTGTGGGTGGGT"]
 bases = ["A", "C", "T", "G"]
@@ -15,36 +16,8 @@ PORT = 8080
 # -- This is for preventing the error: "Port already in use"
 socketserver.TCPServer.allow_reuse_address = True
 
-def read_file(filename):
-    file_lines = Path(filename).read_text()
-    body = file_lines.split("\n")
-    body = body[1:]
-    final_str = ''.join(body)
-    return final_str
 
-def seq_count_base(seq, base):
-    counter = 0
-    for e in seq:
-        if e in base:
-            counter += 1
-    return counter
 
-def seq_reverse(seq):
-    rev_seq = ''
-    for e in seq[::-1]:
-        rev_seq += e
-    return(rev_seq)
-
-def seq_complement(seq):
-    bases = ["A", "C", "T", "G"]
-    bases_comp = ["T", "G", "A", "C"]
-    comp_seq = ""
-    dict_comp = dict(zip(bases, bases_comp))
-    for e in seq:
-        for i,t in dict_comp.items():
-            if e == i:
-                comp_seq += t
-    return(comp_seq)
 # Class with our Handler. It is a called derived from BaseHTTPRequestHandler
 # It means that our class inheritates all his methods and properties
 class TestHandler(http.server.BaseHTTPRequestHandler):
@@ -104,6 +77,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                         contents += "</body></html>"
                         self.send_response(200)
             elif seq_args[0] == "gene":
+                seq0 = Seq("")
                 contents = """
                 <!DOCTYPE html>
                 <html lang="en">
@@ -114,12 +88,14 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 <body>
                 """
                 contents += f"<h2> Gene: {seq_args[1]}</h2>"
-                contents += f"<p>{read_file(FOLDER + seq_args[1] + TEXT)}</p>"
+                seq0 = str(seq0.read_fasta(FOLDER+seq_args[1]+TEXT))
+                contents += f"<textarea>{seq0}</textarea>"
                 contents += '<a href="/">Main page</a>'
                 contents += "</body></html>"
                 self.send_response(200)
             elif first_arg == '/operation':
                 msg_oper = (seq_args[1]).split("&")
+                seq0 = Seq(msg_oper[0])
                 contents = """
                 <!DOCTYPE html>
                 <html lang="en">
@@ -135,23 +111,23 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 if seq_args[-1] == "INFO":
                     contents += "<p>Info<p>"
                     contents += "<h2>Result</h2>"
-                    contents += f"<p>The length of the sequence is: {len(msg_oper[0])}</p>"
+                    contents += f"<p>The length of the sequence is: {seq0.len()}</p>"
                     for e in bases:
-                        contents += f"<p>{e} : {seq_count_base(msg_oper[0], e)} ({round(seq_count_base(msg_oper[0], e) * 100 / len(msg_oper[0]), 2)}%)</p>"
+                        contents += f"<p>{e} : {seq0.count_base(e)} ({round(seq0.count_base(e)*(100/seq0.len()), 2)}%)</p>"
                     contents += '<a href="/">Main page</a>'
                     contents += "</body></html>"
                     self.send_response(200)
                 elif seq_args[-1] == "COMP":
                     contents += "<p>Comp<p>"
                     contents += "<h2>Result</h2>"
-                    contents += f"<p>{seq_complement(msg_oper[0])}</p>"
+                    contents += f"<p>{seq0.complement()}</p>"
                     contents += '<a href="/">Main page</a>'
                     contents += "</body></html>"
                     self.send_response(200)
                 elif seq_args[-1] == "REV":
                     contents += "<p>Rev<p>"
                     contents += "<h2>Result</h2>"
-                    contents += f"<p>{seq_reverse(msg_oper[0])}</p>"
+                    contents += f"<p>{seq0.reverse()}</p>"
                     contents += '<a href="/">Main page</a>'
                     contents += "</body></html>"
                     self.send_response(200)
