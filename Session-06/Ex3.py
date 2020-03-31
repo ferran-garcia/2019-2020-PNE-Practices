@@ -18,8 +18,10 @@ class Seq:
 
     pass
 
+
 class Gene(Seq):
     pass
+
 
 def print_seqs(seq_list):
     for e in range(len(seq_list)):
@@ -27,15 +29,12 @@ def print_seqs(seq_list):
 
 def generate_seqs(pattern, number):
     seq_lists = []
-    bases = ''
     for e in range(1, number + 1):
         bases = e*pattern
         bases = Seq(bases)
         seq_lists.append(bases)
-        bases = ''
     return(seq_lists)
 
-print(generate_seqs("AC", 5))
 
 seq_list1 = generate_seqs("A", 3)
 seq_list2 = generate_seqs("AC", 5)
