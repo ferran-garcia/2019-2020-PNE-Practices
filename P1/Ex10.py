@@ -1,5 +1,3 @@
-from typing import Dict
-
 from Seq1 import Seq
 
 bases = ["A", "C", "T", "G"]

@@ -2,7 +2,7 @@ from Seq1 import Seq
 
 s1 = Seq('')
 
-s2 = Seq("ACTGA")
+s2 = Seq("ACTGATTTTCGAAGCGATAGCTAGA")
 
 s3 = Seq("Invalid sequence")
 
