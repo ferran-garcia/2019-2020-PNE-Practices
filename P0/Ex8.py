@@ -1,5 +1,6 @@
 from seq0 import *
 
+
 bases = ["A", "C", "T", "G"]
 list_of_genes = ["U5", "ADA", "FRAT1", "FXN", "RNU6_269P" ]
 txt = ".txt"

@@ -3,7 +3,6 @@ from pathlib import Path
 def seq_ping():
     print("OK!")
 
-
 def seq_read_fasta(filename):
     file_lines = Path(filename).read_text()
     body = file_lines.split("\n")
