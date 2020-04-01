@@ -3,6 +3,7 @@ list_of_genes = ["U5", "ADA", "FRAT1", "FXN", "RNU6_269P" ]
 IP = "127.0.0.1"
 PORT = 8080
 c = Client(IP, PORT)
+
 t = ""
 print("*Testing PING...")
 print(c.talk("PING"))

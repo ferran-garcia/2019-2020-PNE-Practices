@@ -41,6 +41,7 @@ while True:
 
     # -- We decode it for converting it
     # -- into a human-redeable string
+
     msg = msg_raw.decode()
     comps = msg.split(" ")
     if len(comps) >= 2:
