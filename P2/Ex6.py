@@ -17,6 +17,13 @@ s0 = str(s0.read_fasta(file_name))
 len0 = 10
 num_frag = 5
 print(f"Gene {gene}: {s0}")
+fragments = []
 for e in range(num_frag):
     print(f"fragment {e+1}: {s0[len0*e:len0*(e+1)]}")
-    c.talk(f"fragment {e+1}: {s0[len0*e:len0*(e+1)]}")
+    fragments.append(s0[len0*e:len0*(e+1)])
+
+c.talk(fragments[0])
+c.talk(fragments[1])
+c.talk(fragments[2])
+c.talk(fragments[3])
+c.talk(fragments[4])

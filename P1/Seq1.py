@@ -87,3 +87,13 @@ class Seq:
 
 
     pass
+
+def read_file_lines(filename):
+    file_lines = pathlib.Path(filename).read_text().split("\n")
+    body = (file_lines[1:])
+    sp_list = []
+    for e in body:
+        e = e.split(',')
+        fin_str = e[0]
+        sp_list.append(fin_str)
+    return(sp_list)
