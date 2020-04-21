@@ -49,11 +49,11 @@ while True:
         comp2 = comps[1]
     else:
         comp1 = msg
-    if comp1 == "PING":
+    if comp1 in "PING":
         termcolor.cprint("PING command!", 'green')
         print("OK!")
         response = "OK!\n"
-    if comp1 == "GET":
+    if comp1 in "GET":
         for e in range(len(list_genes)):
             if e == int(comp2):
                 termcolor.cprint("GET", 'green')
