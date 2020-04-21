@@ -7,7 +7,7 @@ bases = ["A", "C", "T", "G"]
 folder = "../Session-04/"
 ext = ".txt"
 IP = "127.0.0.1"
-PORT = 8080
+PORT = 8088
 # -- Step 1: Create a socket
 ls = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

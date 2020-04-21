@@ -1,7 +1,8 @@
 from Client0 import Client
 IP = "127.0.0.1"
-PORT = 8080
+PORT = 8088
 c = Client(IP, PORT)
+list_of_genes = ["U5", "ADA", "FRAT1", "FXN", "RNU6_269P"]
 
 print(f"Connection to SERVER at {IP}, PORT: {PORT}")
 print("*Testing PING...")
@@ -19,8 +20,15 @@ print(c.talk("COMP ACCTCCTCTCCAGCAATGCCAACCCCAGTCCAGGCCCCCATCCGCCCAGGATCTCGATCA"
 print("*Testing REV...")
 print(c.talk("REV ACCTCCTCTCCAGCAATGCCAACCCCAGTCCAGGCCCCCATCCGCCCAGGATCTCGATCA"))
 print("*Testing GENE...")
-for e in list_of_genes:
-    print(f"GENE: {e}")
-    print(c.talk("GENE "+ e))
+print("GENE: U5")
+print(c.talk("GENE U5"))
+print("GENE: ADA")
+print(c.talk("GENE ADA"))
+print("GENE: FRAT1")
+print(c.talk("GENE FRAT1"))
+print("GENE: FXN")
+print(c.talk("GENE FXN"))
+print("GENE: RNU_269P")
+print(c.talk("GENE RNU_269P"))
 
 
