@@ -12,6 +12,7 @@ inp_gene = input("Write the gene:")
 
 SERVER = 'rest.ensembl.org'
 ENDPOINT = '/sequence/id/'
+al
 PARAMS = dict_genes[inp_gene] + '?content-type=application/json'
 URL = SERVER + ENDPOINT + PARAMS
 
