@@ -35,10 +35,12 @@ def process_client(s):
     body = ""
     if file_info == "/":
         body += read_index("index.html")
-    for e in bases:
-        if e in file_info:
-            body += read_index(e+".html")
-    xbody == read_index("Error.html")
+    else:
+        body = read_index("Error.html")
+        for e in bases:
+            if ('/info/'+e) in file_info:
+                body = read_index(e+".html")
+
 
     # -- Status line: We respond that everything is ok (200 code)
     status_line = "HTTP/1.1 200 OK\n"
