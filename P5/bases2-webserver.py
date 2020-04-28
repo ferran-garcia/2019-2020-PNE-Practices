@@ -30,14 +30,14 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         # Print the request line
         termcolor.cprint(self.requestline, 'green')
-
+        path_ = self.path
         # IN this simple server version:
         # We are NOT processing the client's request
         # It is a happy server: It always returns a message saying
         # that everything is ok
         folder = "../P5/"
         try:
-            if self.path == "/" or self.path == "/index.html":
+            if path_ == "/" or self.path == "/index.html":
                 contents = read_index(folder + "index.html")
             else:
                 contents = read_index(folder + self.path[-1] + ".html")
