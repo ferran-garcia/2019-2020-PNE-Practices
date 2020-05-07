@@ -186,7 +186,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 <html lang="en">
                 <head>
                     <meta charset="utf-8">
-                    <title>CHROMOSOME LENGTH</title>
+                    <title>GENE LIST</title>
                 </head>
                 <body style="background-color: lightblue;">
                 """
@@ -283,6 +283,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                         contents += f"<p>The length of the sequence is: {seq0.len()}</p>"
                         for e in bases:
                             contents += f"<p>{e} : {seq0.count_base(e)} ({round(seq0.count_base(e)*(100/seq0.len()), 2)}%)</p>"
+                            contents += "</body></html>"
                 self.send_response(200)
 
 
@@ -290,7 +291,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         # Open the form1.html file
         # Read the index from th
-
+        print(contents)
         # Define the content-type header:
         if 'json=1' in req_line:
             self.send_header('Content-Type', 'application/json')
