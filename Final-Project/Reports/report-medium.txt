@@ -1,6 +1,286 @@
 TEST REPORT MEDIUM
 ==================
 
+--> ListSpecies endpoint:
+
+* TEST 1
+
+* Input:
+
+http://localhost:8080/listSpecies?msg=12
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LIST OF SPECIES</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 12</p><p>-Ferret</p><p>-Pig</p><p>-Periophthalmus magnuspinnatus</p><p>-Horned golden-line barbel</p><p>-Western mosquitofish</p><p>-Cat</p><p>-Damara mole rat</p><p>-Sheep</p><p>-Greater amberjack</p><p>-Goat</p><p>-Shortfin molly</p><p>-Drill</p><a href="/">Main Page</a></body></html>
+
+</body>
+</html>
+
+* Test 2
+
+* Input:
+
+http://localhost:8080/listSpecies?msg=2
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LIST OF SPECIES</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 5</p><p>-Pig - Rongchang</p><p>-Pika</p><a href="/">Main Page</a>
+</body>
+</html>
+
+* Test 3
+
+* Input:
+
+http://localhost:8080/listSpecies?msg=
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LIST OF SPECIES</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: </p><p>-Pig - Rongchang</p><p>-Pika</p><p>-African ostrich</p><p>-Nile tilapia</p><p>-Channel catfish</p><p>-West African mud turtle</p><p>-Channel bull blenny</p><p>-Sooty mangabey</p><p>-Dolphin</p><p>-Naked mole-rat male</p><p>-Brown trout</p><p>-Eastern brown snake</p><p>-Mouse CAST/EiJ</p><p>-Spiny chromis</p><p>-Gorilla</p><p>-Silver-eye</p><p>-Sloth</p><p>-Eurasian sparrowhawk</p><p>-Mouse AKR/J</p><p>-Sailfin molly</p><p>-Greater bamboo lemur</p><p>-Mangrove rivulus</p><p>-Platypus</p><p>-Live sharksucker</p><p>-Megabat</p><p>-Mouse NOD/ShiLtJ</p><p>-Ferret</p><p>-Coelacanth</p><p>-Lion</p><p>-Siamese fighting fish</p><p>-Pig - Wuzhishan</p><p>-Brazilian guinea pig</p><p>-Sheepshead minnow</p><p>-Beluga whale</p><p>-Domestic yak</p><p>-Orbiculate cardinalfish</p><p>-Chinese hamster CHOK1GS</p><p>-Kakapo</p><p>-Orangutan</p><p>-Daurian ground squirrel</p><p>-Pig - Bamei</p><p>-Mouse BALB/cJ</p><p>-Common carp huanghe</p><p>-Three-toed box turtle</p><p>-Tongue sole</p><p>-Chimpanzee</p><p>-Ma's night monkey</p><p>-Red-bellied piranha</p><p>-Pig - Tibetan</p><p>-Drill</p><p>-Anole lizard</p><p>-Duck</p><p>-Common carp german mirror</p><p>-Chilean tinamou</p><p>-Marmoset</p><p>-Chinese medaka</p><p>-Greater amberjack</p><p>-Mouse</p><p>-Dark-eyed junco</p><p>-Mouse DBA/2J</p><p>-Arctic ground squirrel</p><p>-Pig</p><p>-Mallard</p><p>-Dog - Great Dane</p><p>-Great Tit</p><p>-Pig - Pietrain</p><p>-Mainland tiger snake</p><p>-Pig - Jinhua</p><p>-Lesser hedgehog tenrec</p><p>-Climbing perch</p><p>-Tuatara</p><p>-Wild yak</p><p>-Bushbaby</p><p>-Degu</p><p>-Siberian musk deer</p><p>-Northern pike</p><p>-Pig - Meishan</p><p>-Gilthead seabream</p><p>-Kangaroo rat</p><p>-Ring-necked pheasant</p><p>-Mummichog</p><p>-American mink</p><p>-Tasmanian devil</p><p>-Horned golden-line barbel</p><p>-Shrew mouse</p><p>-Golden Hamster</p><p>-Pachon cavefish</p><p>-Mouse PWK/PhJ</p><p>-Hybrid - Bos Taurus</p><p>-Canada lynx</p><p>-Wallaby</p><p>-Argentine black and white tegu</p><p>-Monterrey platyfish</p><p>-Blue tit</p><p>-Japanese quail</p><p>-Microbat</p><p>-Panda</p><p>-Chinook salmon</p><p>-Hedgehog</p><p>-Ryukyu mouse</p><p>-Chinese hamster CriGri</p><p>-Tree Shrew</p><p>-Central bearded dragon</p><p>-Amazon molly</p><p>-Helmeted guineafowl</p><p>-Stickleback</p><p>-Northern American deer mouse</p><p>-Saccharomyces cerevisiae</p><p>-Dog - Basenji</p><p>-Golden eagle</p><p>-Tiger tail seahorse</p><p>-Chacoan peccary</p><p>-Japanese medaka HdrR</p><p>-Lamprey</p><p>-Mexican tetra</p><p>-Common snapping turtle</p><p>-American black bear</p><p>-Okarito brown kiwi</p><p>-Gouldian finch</p><p>-Mongolian gerbil</p><p>-C.intestinalis</p><p>-Mouse LP/J</p><p>-Great spotted kiwi</p><p>-Western mosquitofish</p><p>-Periophthalmus magnuspinnatus</p><p>-Mouse 129S1/SvImJ</p><p>-Flycatcher</p><p>-Yellow-billed parrot</p><p>-Mouse C57BL/6NJ</p><p>-Pig-tailed macaque</p><p>-Dingo</p><p>-Rainbow trout</p><p>-Alpaca</p><p>-Zig-zag eel</p><p>-Hagfish</p><p>-Common carp</p><p>-Armadillo</p><p>-Pig - Largewhite</p><p>-Opossum</p><p>-Lyretail cichlid</p><p>-Goat</p><p>-Barramundi perch</p><p>-Small tree finch</p><p>-Mouse WSB/EiJ</p><p>-American beaver</p><p>-Pig - Landrace</p><p>-Elephant shark</p><p>-Sperm whale</p><p>-Spotted gar</p><p>-Mouse CBA/J</p><p>-Blue tilapia</p><p>-Platyfish</p><p>-Medium ground-finch</p><p>-Paramormyrops kingsleyae</p><p>-Tarsier</p><p>-Common wall lizard</p><p>-Swan goose</p><p>-Blue-ringed sea krait</p><p>-Common canary</p><p>-Chinese hamster PICR</p><p>-Vervet-AGM</p><p>-Golden-collared manakin</p><p>-Long-tailed chinchilla</p><p>-Zebra finch</p><p>-C.savignyi</p><p>-Rat</p><p>-Ocean sunfish</p><p>-Little spotted kiwi</p><p>-Indian medaka</p><p>-Cow</p><p>-Leopard</p><p>-Atlantic salmon</p><p>-Alpine marmot</p><p>-Large yellow croaker</p><p>-Upper Galilee mountains blind mole rat</p><p>-Goodes thornscrub tortoise</p><p>-Indian peafowl</p><p>-Common carp hebao red</p><p>-Denticle herring</p><p>-Koala</p><p>-Midas cichlid</p><p>-Golden-line barbel</p><p>-Turbot</p><p>-Ruff</p><p>-Pig USMARC</p><p>-Pig - Hampshire</p><p>-Human</p><p>-Burrowing owl</p><p>-Cod</p><p>-Burton's mouthbrooder</p><p>-Donkey</p><p>-Guinea Pig</p><p>-Clown anemonefish</p><p>-Golden pheasant</p><p>-Sheep</p><p>-Red fox</p><p>-Bonobo</p><p>-Indian glassy fish</p><p>-Tetraodon</p><p>-Ballan wrasse</p><p>-Pig - Berkshire</p><p>-Hybrid - Bos Indicus</p><p>-Budgerigar</p><p>-Meerkat</p><p>-European seabass</p><p>-Elephant</p><p>-Emu</p><p>-Tiger</p><p>-Drosophila melanogaster</p><p>-Steppe mouse</p><p>-Swamp eel</p><p>-Japanese medaka HNI</p><p>-Jewelled blenny</p><p>-Mouse C3H/HeJ</p><p>-Zebra mbuna</p><p>-White-throated sparrow</p><p>-Painted turtle</p><p>-Zebrafish</p><p>-Goldfish</p><p>-Horse</p><p>-Greater horseshoe bat</p><p>-Eastern happy</p><p>-Tropical clawed frog</p><p>-Spoon-billed sandpiper</p><p>-Angola colobus</p><p>-Algerian mouse</p><p>-Dog</p><p>-Macaque</p><p>-Squirrel</p><p>-Mouse Lemur</p><p>-Common wombat</p><p>-Rabbit</p><p>-Polar bear</p><p>-Atlantic herring</p><p>-Chicken</p><p>-Fugu</p><p>-Bicolor damselfish</p><p>-Mouse NZO/HlLtJ</p><p>-Reedfish</p><p>-Chinese softshell turtle</p><p>-Blunt-snouted clingfish</p><p>-Caenorhabditis elegans</p><p>-Coquerel's sifaka</p><p>-Agassiz's desert tortoise</p><p>-Guppy</p><p>-Javanese ricefish</p><p>-Makobe Island cichlid</p><p>-Prairie vole</p><p>-Gelada</p><p>-Pinecone soldierfish</p><p>-Arabian camel</p><p>-Japanese medaka HSOK</p><p>-Asiatic black bear</p><p>-Bengalese finch</p><p>-Hyrax</p><p>-Turkey</p><p>-Shrew</p><p>-Golden snub-nosed monkey</p><p>-Black snub-nosed monkey</p><p>-Round goby</p><p>-Asian bonytongue</p><p>-Electric eel</p><p>-American bison</p><p>-Shortfin molly</p><p>-Orange clownfish</p><p>-Komodo dragon</p><p>-Blind barbel</p><p>-Ugandan red Colobus</p><p>-Olive baboon</p><p>-Lesser Egyptian jerboa</p><p>-Cat</p><p>-Pink-footed goose</p><p>-Capuchin</p><p>-Australian saltwater crocodile</p><p>-Naked mole-rat female</p><p>-Mouse FVB/NJ</p><p>-Abingdon island giant tortoise</p><p>-Gibbon</p><p>-Mouse A/J</p><p>-Yellowtail amberjack</p><p>-Bolivian squirrel monkey</p><p>-Crab-eating macaque</p><p>-Damara mole rat</p><p>-Huchen</p><p>-Rufous-capped babbler</p><p>-Blue-crowned manakin</p><a href="/">Main Page</a>
+</body>
+</html>
+
+* Test 4
+
+* Input:
+
+http://localhost:8080/listSpecies?msg=26
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LIST OF SPECIES</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 26</p><p>-Ferret</p><p>-Pig</p><p>-Periophthalmus magnuspinnatus</p><p>-Horned golden-line barbel</p><p>-Western mosquitofish</p><p>-Cat</p><p>-Damara mole rat</p><p>-Sheep</p><p>-Greater amberjack</p><p>-Goat</p><p>-Shortfin molly</p><p>-Drill</p><p>-Upper Galilee mountains blind mole rat</p><p>-Asian bonytongue</p><p>-Siamese fighting fish</p><p>-Red fox</p><p>-Mallard</p><p>-Gilthead seabream</p><p>-Chicken</p><p>-Olive baboon</p><p>-Common carp german mirror</p><p>-Sperm whale</p><p>-Megabat</p><p>-Chinese hamster CriGri</p><p>-Reedfish</p><p>-Stickleback</p><a href="/">Main Page</a>
+</body>
+</html>
+
+* Test 5
+
+* Input:
+
+http://localhost:8080/listSpecies?msg=13
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LIST OF SPECIES</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 13</p><p>-Ferret</p><p>-Pig</p><p>-Periophthalmus magnuspinnatus</p><p>-Horned golden-line barbel</p><p>-Western mosquitofish</p><p>-Cat</p><p>-Damara mole rat</p><p>-Sheep</p><p>-Greater amberjack</p><p>-Goat</p><p>-Shortfin molly</p><p>-Drill</p><p>-Upper Galilee mountains blind mole rat</p><a href="/">Main Page</a>
+</body>
+</html>
+
+
+--> Karyotype endpoint:
+
+* Test 1
+
+* Input:
+
+http://localhost:8080/karyotype?msg=chicken
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KARYOTYPE</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Karyotype of the species: chicken</h2><p>MT</p><p>W</p><p>Z</p><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>30</p><p>31</p><p>32</p><p>33</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 2
+
+* Input:
+
+http://localhost:8080/karyotype?msg=rabbit
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KARYOTYPE</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Karyotype of the species: rabbit</h2><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>X</p><p>MT</p><p>MT</p><p>MT</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 3
+
+* Input:
+
+http://localhost:8080/karyotype?msg=gorilla
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KARYOTYPE</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Karyotype of the species: gorilla</h2><p>1</p><p>2A</p><p>2B</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>X</p><p>MT</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 4
+
+* Input:
+
+http://localhost:8080/karyotype?msg=human
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KARYOTYPE</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Karyotype of the species: human</h2><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>X</p><p>Y</p><p>MT</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 5
+
+* Input:
+
+http://localhost:8080/karyotype?msg=cow
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>KARYOTYPE</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Karyotype of the species: cow</h2><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p><p>11</p><p>12</p><p>13</p><p>14</p><p>15</p><p>16</p><p>17</p><p>18</p><p>19</p><p>20</p><p>21</p><p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>X</p><p>MT</p><a href="/">Main page</a>
+</body>
+</html>
+
+
+--> ChromosomeLength endpoint:
+
+* Test 1
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=chicken&chromo=3
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHROMOSOME LENGTH</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Chromosome: 3 Species: chicken</h2><p>The length of the chromosome is:   110838418</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 2
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=rabbit&chromo=20
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHROMOSOME LENGTH</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Chromosome: 20 Species: rabbit</h2><p>The length of the chromosome is:   33191332</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 3
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=gorilla&chromo=13
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHROMOSOME LENGTH</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Chromosome: 13 Species: gorilla</h2><p>The length of the chromosome is:   97154659</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 4
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=human&chromo=17
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHROMOSOME LENGTH</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Chromosome: 17 Species: human</h2><p>The length of the chromosome is:   83257441</p><a href="/">Main page</a>
+</body>
+</html>
+
+* Test 5
+
+* Input:
+
+http://localhost:8080/chromosomeLength?specie=cow&chromo=X
+
+*Output:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHROMOSOME LENGTH</title>
+</head>
+<body style="background-color: lightblue;">
+   <h2> Chromosome: X Species: cow</h2><p>The length of the chromosome is:   139009144</p><a href="/">Main page</a>
+</body>
+</html>
+
+
 --> GeneSeq endpoint:
 
 * TEST 1
