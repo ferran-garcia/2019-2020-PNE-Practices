@@ -307,7 +307,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             contents += f"<p>This is a TypeError type </p>"
             self.send_response(404)
 
-        # Open the form1.html file
+
         # Read the index from th
         # Define the content-type header:
         if 'json=1' in req_line:
