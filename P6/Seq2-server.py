@@ -89,7 +89,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 """
                 contents += f"<h2> Gene: {seq_args[1]}</h2>"
                 seq0 = str(seq0.read_fasta(FOLDER+seq_args[1]+TEXT))
-                contents += f"<textarea>{seq0}</textarea>"
+                contents += f"<textarea readonly rows = 20 cols = 80>{seq0}</textarea>"
                 contents += '<a href="/">Main page</a>'
                 contents += "</body></html>"
                 self.send_response(200)
