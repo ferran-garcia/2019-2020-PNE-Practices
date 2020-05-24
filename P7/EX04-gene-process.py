@@ -8,11 +8,10 @@ list_identifiers = ['ENSG00000165879', 'ENSG00000196839', 'ENSG00000165060', 'EN
 dict_genes = dict(zip(list_genes, list_identifiers))
 bases = ["A", "C", "T", "G"]
 
-inp_gene = input("Write the gene:")
+inp_gene = input("Write the gene: ")
 
 SERVER = 'rest.ensembl.org'
 ENDPOINT = '/sequence/id/'
-al
 PARAMS = dict_genes[inp_gene] + '?content-type=application/json'
 URL = SERVER + ENDPOINT + PARAMS
 
@@ -46,7 +45,6 @@ seq0 = Seq(api_info['seq'])
 colored_len = colored("Total length", 'green')
 print(f"{colored_len}: {seq0.len()}")
 
-most_times = []
 for e in bases:
     e = colored(e, 'blue')
     print(f"{e} : {seq0.count_base(e)} ({round(seq0.count_base(e) * (100 / seq0.len()), 2)}%)")
