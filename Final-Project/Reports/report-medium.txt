@@ -17,8 +17,7 @@ http://localhost:8080/listSpecies?msg=12
     <title>LIST OF SPECIES</title>
 </head>
 <body style="background-color: lightblue;">
-   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 12</p><p>-Ferret</p><p>-Pig</p><p>-Periophthalmus magnuspinnatus</p><p>-Horned golden-line barbel</p><p>-Western mosquitofish</p><p>-Cat</p><p>-Damara mole rat</p><p>-Sheep</p><p>-Greater amberjack</p><p>-Goat</p><p>-Shortfin molly</p><p>-Drill</p><a href="/">Main Page</a></body></html>
-
+   <h2> Species List</h2><p>The total number of species in ensembl is: 286</p><p>The limit the user has selected is: 12</p><p>-Ferret</p><p>-Pig</p><p>-Periophthalmus magnuspinnatus</p><p>-Horned golden-line barbel</p><p>-Western mosquitofish</p><p>-Cat</p><p>-Damara mole rat</p><p>-Sheep</p><p>-Greater amberjack</p><p>-Goat</p><p>-Shortfin molly</p><p>-Drill</p><a href="/">Main Page</a>
 </body>
 </html>
 
