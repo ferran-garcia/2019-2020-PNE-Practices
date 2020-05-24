@@ -309,7 +309,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         # Open the form1.html file
         # Read the index from th
-        print(contents)
         # Define the content-type header:
         if 'json=1' in req_line:
             self.send_header('Content-Type', 'application/json')
